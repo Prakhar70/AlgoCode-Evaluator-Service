@@ -6,4 +6,4 @@ const v1Router:Router = express.Router();
 
 v1Router.get('/ping', pingCheck);
 
-export default v1Router
+export default v1Router;

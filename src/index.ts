@@ -8,4 +8,4 @@ app.use('/api', apiRouter);
 
 app.listen(serverConfig.PORT, ()=>{
     console.log(`server started at *:${serverConfig.PORT}`);
-})
+});

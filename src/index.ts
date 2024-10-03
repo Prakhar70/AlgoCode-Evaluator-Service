@@ -17,5 +17,11 @@ app.listen(serverConfig.PORT, () => {
     company: "Microsoft",
     position: "SDE2",
     location: "Remote|BLR|Noida",
-  });
+  },2000);
+  SampleQueueProducer("SampleJob", {
+    name: "Prakhar Agarwal",
+    company: "Walmart",
+    position: "SDE2",
+    location: "Remote|BLR|Noida",
+  },30);
 });

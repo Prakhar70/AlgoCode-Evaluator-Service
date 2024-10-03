@@ -1,6 +1,7 @@
-import { Response, Request, NextFunction } from 'express'
-import {ZodSchema} from 'zod'
+import { Response, Request, NextFunction } from 'express';
+import {ZodSchema} from 'zod';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const validate = (schema:ZodSchema<any>) => (req:Request, res:Response, next: NextFunction)=>{
     try{
         schema.parse({
@@ -18,4 +19,4 @@ export const validate = (schema:ZodSchema<any>) => (req:Request, res:Response, n
             error:error
         });
     }
-}
+};

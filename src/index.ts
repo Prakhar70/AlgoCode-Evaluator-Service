@@ -4,7 +4,8 @@ import SampleQueueProducer from "./producers/sampleQueueProducer";
 import apiRouter from "./routes";
 import bullBoardAdapter from "./config/bullBoardConfig";
 import SampleWorker from "./workers/SampleWorker";
-import bodyParser from "body-parser"
+import bodyParser from "body-parser";
+
 
 
 const app: Express = express();

@@ -2,11 +2,14 @@ import express, { Express } from "express";
 import serverConfig from "./config/serverConfig";
 import SampleQueueProducer from "./producers/sampleQueueProducer";
 import apiRouter from "./routes";
+import bullBoardAdapter from "./config/bullBoardConfig";
 import SampleWorker from "./workers/SampleWorker";
+
 
 const app: Express = express();
 
 app.use("/api", apiRouter);
+app.use('/ui', bullBoardAdapter.getRouter());
 
 app.listen(serverConfig.PORT, () => {
   console.log(`server started at *:${serverConfig.PORT}`);

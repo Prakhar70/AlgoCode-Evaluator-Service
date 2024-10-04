@@ -1,4 +1,4 @@
-import { z } from "zod"
+import { z } from "zod";
 
 // export interface CreateSubmissionDto{
 //     userId: string,
@@ -14,4 +14,4 @@ export const createSubmissionZodSchema = z.object({
     problemId: z.string(),
     code: z.string(),
     language: z.string()
-})/*.strict()*/ // if you want to have strict schema
+});/*.strict()*/ // if you want to have strict schema

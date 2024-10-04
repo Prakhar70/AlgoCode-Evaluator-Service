@@ -4,7 +4,7 @@ import apiRouter from "./routes";
 import bullBoardAdapter from "./config/bullBoardConfig";
 import SampleWorker from "./workers/SampleWorker";
 import bodyParser from "body-parser";
-import runPython from "./containers/runPythonDocker";
+import runCpp from "./containers/runCppDocker";
 
 
 
@@ -22,15 +22,22 @@ app.listen(serverConfig.PORT, () => {
 
   SampleWorker('SampleQueue');
   
-  const code = `
-x=input()
-y=input()
-print("val of x is", x)
-print("val of y is", y)
+  const code:string =`
+  #include <iostream>
+  using namespace std;
+
+  int main(){
+    int x;
+    cin>>x;
+    cout<<"Value of x is "<<x<<endl;
+    for(int i=0;i<x;i++){
+      cout<<i<<" ";
+    }
+    return 0;
+  }
 `;
-  const inputTestCase = `100
-  200
+  const inputCase:string = `10
   `;
 
-  runPython(code,inputTestCase);
+  runCpp(code,inputCase);
 });

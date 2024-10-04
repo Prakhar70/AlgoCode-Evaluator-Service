@@ -4,7 +4,11 @@ import apiRouter from "./routes";
 import bullBoardAdapter from "./config/bullBoardConfig";
 import SampleWorker from "./workers/SampleWorker";
 import bodyParser from "body-parser";
-import runCpp from "./containers/runCppDocker";
+// import runCpp from "./containers/runCppDocker";
+import SubmissionWorker from "./workers/SubmissionWorker";
+import { submission_queue } from "./utils/constants";
+
+import submissionQueueProducer from "./producers/submissionQueueProducer";
 
 
 
@@ -21,6 +25,8 @@ app.listen(serverConfig.PORT, () => {
   console.log(`server started at *:${serverConfig.PORT}`);
 
   SampleWorker('SampleQueue');
+  SubmissionWorker(submission_queue);
+
   
   const code:string =`
   #include <iostream>
@@ -39,5 +45,11 @@ app.listen(serverConfig.PORT, () => {
   const inputCase:string = `10
   `;
 
-  runCpp(code,inputCase);
+  submissionQueueProducer({1234:{
+    language: "CPP",
+    inputCase,
+    code
+  }});
+
+  // runCpp(code,inputCase);
 });

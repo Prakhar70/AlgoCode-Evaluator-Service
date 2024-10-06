@@ -5,7 +5,7 @@ import { CPP_IMAGE } from '../utils/constants';
 import decodeDockerStream from './dockerHelper';
 import pullImage from './pullImage';
 
-
+//TODO: Migrate to strategy design pattern
 async function runCpp(code:string, inputTestCase:string){
 
     const rawLogBuffer:Buffer[] = [];

@@ -10,7 +10,7 @@ export default function SubmissionWorker(queueName: string) {
         
       if (job.name === "SubmissionJob") {
         const submissionJobInstance = new SubmissionJob(job.data);
-
+        console.log('calling job handler');
         submissionJobInstance.handle(job);
         return true;
       }

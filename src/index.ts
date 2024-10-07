@@ -8,7 +8,7 @@ import bodyParser from "body-parser";
 import SubmissionWorker from "./workers/SubmissionWorker";
 import { submission_queue } from "./utils/constants";
 
-import submissionQueueProducer from "./producers/submissionQueueProducer";
+// import submissionQueueProducer from "./producers/submissionQueueProducer";
 
 
 
@@ -28,28 +28,28 @@ app.listen(serverConfig.PORT, () => {
   SubmissionWorker(submission_queue);
 
   
-  const code:string =`
-  #include <iostream>
-  using namespace std;
+//   const code:string =`
+//   #include <iostream>
+//   using namespace std;
 
-  int main(){
-    int x;
-    cin>>x;
-    cout<<"Value of x is "<<x<<endl;
-    for(int i=0;i<x;i++){
-      cout<<i<<" ";
-    }
-    return 0;
-  }
-`;
-  const inputCase:string = `10
-  `;
+//   int main(){
+//     int x;
+//     cin>>x;
+//     cout<<"Value of x is "<<x<<endl;
+//     for(int i=0;i<x;i++){
+//       cout<<i<<" ";
+//     }
+//     return 0;
+//   }
+// `;
+//   const inputCase:string = `10
+//   `;
 
-  submissionQueueProducer({1234:{
-    language: "CPP",
-    inputCase,
-    code
-  }});
+//   submissionQueueProducer({1234:{
+//     language: "CPP",
+//     inputCase,
+//     code
+//   }});
 
   // runCpp(code,inputCase);
 });

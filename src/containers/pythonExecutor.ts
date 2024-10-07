@@ -6,9 +6,10 @@ import CodeExecutorStrategy, { ExecutionResponse } from "../types/CodeExecutorSt
 
 
 class PythonExecutor implements CodeExecutorStrategy {
-  async execute(code: string, inputTestCase: string):Promise<ExecutionResponse> {
+  async execute(code: string, inputTestCase: string,outputTestCase:string):Promise<ExecutionResponse> {
     const rawLogBuffer: Buffer[] = [];
-
+    console.log(code,inputTestCase,outputTestCase);
+    
     const runCommand = `echo '${code.replace(
       /'/g,
       `'\\"`

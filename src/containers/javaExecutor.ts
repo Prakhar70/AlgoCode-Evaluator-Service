@@ -9,7 +9,8 @@ import CodeExecutorStrategy, {
 } from "../types/CodeExecutorStrategy";
 
 class JavaExecutor implements CodeExecutorStrategy {
-  async execute(code: string, inputTestCase: string): Promise<ExecutionResponse> {
+  async execute(code: string, inputTestCase: string, outputTestCase:string): Promise<ExecutionResponse> {
+    console.log(code,inputTestCase, outputTestCase);
     const rawLogBuffer: Buffer[] = [];
 
     const runCommand = `echo '${code.replace(

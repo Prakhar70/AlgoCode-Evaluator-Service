@@ -1,5 +1,5 @@
 export default interface CodeExecutorStrategy {
-  execute(code: string, inputTestCase: string): Promise<ExecutionResponse>;
+  execute(code: string, inputTestCase: string, outputTestCase:string): Promise<ExecutionResponse>;
   // eslint-disable-next-line semi
 }
 

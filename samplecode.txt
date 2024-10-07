@@ -1,0 +1,8 @@
+class Solution {
+    int cube(int n) {
+
+        for(int i=0;i<1000000000L;i++){
+        }
+        return n*n*n;
+    }
+}

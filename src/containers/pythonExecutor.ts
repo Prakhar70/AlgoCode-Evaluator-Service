@@ -49,9 +49,17 @@ class PythonExecutor implements CodeExecutorStrategy {
         await pythonDockerContainer.remove();
     }
   }
-fetchDecodeStream(loggerStream:NodeJS.ReadableStream, rawLogBuffer:Buffer[]):Promise<string>{
+  fetchDecodeStream(loggerStream:NodeJS.ReadableStream, rawLogBuffer:Buffer[]):Promise<string>{
+    
+    //TODO: Moved to docker helper util
     return new Promise((res, rej) => {
+      const timeout = setTimeout(()=>{
+        console.log("Timeout called");
+        rej('TLE');
+      },2000);
         loggerStream.on("end", () => {
+          //This callback execute when stream ends
+          clearTimeout(timeout);
           console.log(rawLogBuffer);
           const completeBuffer = Buffer.concat(rawLogBuffer);
           const decodedStream = decodeDockerStream(completeBuffer);
